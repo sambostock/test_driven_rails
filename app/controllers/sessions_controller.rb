@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    session[:current_email] = session_email_param
+    sign_in_as session_email_param
     redirect_to root_path
   end
 

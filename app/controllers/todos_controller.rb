@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   before_action :authenticate
 
   def index
-    @todos = Todo.where(email: session[:current_email])
+    @todos = Todo.where(email: current_email])
   end
 
   def new
