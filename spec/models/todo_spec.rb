@@ -15,7 +15,7 @@ describe 'Todo', '#completed?' do
 end
 
 describe 'Todo', '#complete!' do
-  it 'update_completed_at' do
+  it 'updates completed_at' do
     todo = Todo.create!(completed_at: nil)
 
     todo.complete!
@@ -23,5 +23,17 @@ describe 'Todo', '#complete!' do
     todo.reload
 
     expect(todo).to be_completed
+  end
+end
+
+describe 'Todo', '#mark_incomplete!' do
+  it 'clears completed_at' do
+    todo = Todo.create!(completed_at: Time.current)
+
+    todo.mark_incomplete!
+
+    todo.reload
+
+    expect(todo).not_to be_completed
   end
 end
