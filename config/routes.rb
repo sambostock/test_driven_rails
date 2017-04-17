@@ -55,4 +55,6 @@ Rails.application.routes.draw do
   #   end
 
   root to: 'todos#index'
+
+  resources :todos, only: [:index, :new, :create]
 end
